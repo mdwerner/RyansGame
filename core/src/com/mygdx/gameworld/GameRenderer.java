@@ -1,22 +1,26 @@
 package com.mygdx.gameworld;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.mygdx.gameobjects.Bird;
 import com.mygdx.helpers.AssetLoader;
 
-public class GameRenderer {
+public class GameRenderer{
 	
 	private GameWorld world;
 	private OrthographicCamera cam;
 	private ShapeRenderer shapeRenderer;
 	
 	private SpriteBatch batcher;
+	private Texture texture;
+	private Sprite sprite;
 	private int midPointY;
 	private int gameHeight;
 	
@@ -30,8 +34,10 @@ public class GameRenderer {
 		
 		batcher = new SpriteBatch();
 		batcher.setProjectionMatrix(cam.combined);
+		texture = new Texture(Gdx.files.internal("data/jet.png"));
+	    sprite = new Sprite(texture);
 		
-		shapeRenderer = new ShapeRenderer();
+	    shapeRenderer = new ShapeRenderer();
 		shapeRenderer.setProjectionMatrix(cam.combined);
 	}//end GameRenderer constructor
 	
@@ -86,8 +92,8 @@ public class GameRenderer {
         // Draw bird at its coordinates. Retrieve the Animation object from
         // AssetLoader
         // Pass in the runTime variable to get the current frame.
-        batcher.draw(AssetLoader.birdAnimation.getKeyFrame(runTime),
-                bird.getX(), bird.getY(), bird.getWidth(), bird.getHeight());
+       // batcher.draw(AssetLoader.birdAnimation.getKeyFrame(runTime),
+         //       bird.getX(), bird.getY(), bird.getWidth(), bird.getHeight());
 
         // End SpriteBatch
         batcher.end();
@@ -114,5 +120,6 @@ public class GameRenderer {
         shapeRenderer.end();
         */
     }//end render method
+
 	
 }//end GameRenderer

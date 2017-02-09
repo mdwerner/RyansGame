@@ -43,6 +43,7 @@ public class GameScreen implements Screen {
         
         world.update(delta); //Update the world
         renderer.render(runTime);
+        //renderer.render(1/delta);
     }
 
     @Override
