@@ -7,6 +7,9 @@ import com.mygdx.game.CameraDemo;
 import com.mygdx.game.InputDemo;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.SceneDemo;
+import com.mygdx.game.SceneManagementDemo;
+import com.mygdx.game.TiledDemo;
+import com.mygdx.game.UIDemo;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -19,6 +22,9 @@ public class DesktopLauncher {
 		config.height = 720;
 		
 		//new LwjglApplication(new CameraDemo(), config);
-		new LwjglApplication(new SceneDemo(), config);
+		//new LwjglApplication(new SceneDemo(), config);
+		//new LwjglApplication(new SceneManagementDemo(), config);
+		//new LwjglApplication(new UIDemo(), config);
+		new LwjglApplication(new TiledDemo(), config);
 	}
 }
